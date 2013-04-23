@@ -1,19 +1,19 @@
 /*
 
-AtMegaWebServer Library, Copyright (c) 2013 Tilo Szepan, Immo Wache
+AtMegaWebServer Library, Copyright (c) 2013 Tilo Szepan, Immo Wache <https://github.com/tilos/AtMegaWebServer.git>
 
 Based on the TinyWebServer Library, Copyright (C) 2010 Ovidiu Predescu <ovidiu@gmail.com>
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated 
-documentation files (the "Software"), to deal in the Software without restriction, including without limitation 
-the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, 
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+documentation files (the "Software"), to deal in the Software without restriction, including without limitation
+the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,
 and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED 
-TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL 
-THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF 
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
+TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
 CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
@@ -94,7 +94,7 @@ public:
 // and returns true
 // It waits up to timeOut secs for data, then returns false
   boolean readLine(int timeOut = TIME_OUT);
-  
+
   // Handles a possible HTTP request. It will return immediately if no
   // client has connected. Otherwise the request is handled
   // synchronously.
@@ -104,21 +104,21 @@ public:
   boolean processRequest();
 
 
-  // translates a single hex char ('0' - '9', 'a' | 'A' - 'f' | 'F') to int (0 ... 15) 
+  // translates a single hex char ('0' - '9', 'a' | 'A' - 'f' | 'F') to int (0 ... 15)
   // if c is not a hex char -1 will be returned
   int parseHexChar(char c);
-  
+
   // looks for '%' in str and trys to parse the following 2 chars (hex values)
   // and stores the result in str
   // it returns the number of chars str length has decreased (2 x number of '%'s)
   // so you can: if(unescapeChars(char* str)){ char *newstr = (char*)malloc(strlen(str) + 1) ... free(str)
   // if you want to save each byte or do it in a buffer before allocating
   int unescapeChars(char* str);
-  
+
   // waits up to paramvalue secs (default is TIME_OUT ( = 30)) for incomming data
   // and returns if some available
   boolean waitClientAvailable(int sec = TIME_OUT);
-  
+
   // output standard headers indicating "200 Success" by calling without params. You can change the
   // type of the data you're outputting (MimeType get_mime_type_from_filename(const char* filename);)
   // If you want to send a file with a non-supported MimeType you can:
@@ -126,11 +126,11 @@ public:
   // or also add extra headers like "Refresh: 1" CRLF.
   // Extra headers should each be terminated with CRLF.
   void sendHttpResult(int code = 200, MimeType mime = 0, const char *extraHeaders = 0);
-  
+
   // assigns the values for the requested headers passed with the constructor
-  // if there are some stored in buffer 
+  // if there are some stored in buffer
   boolean assignHeaderValue();
-  
+
   // free's all header values from last request
   void freeHeaders();
 
@@ -158,7 +158,7 @@ public:
   virtual size_t write(const char *str);
   virtual size_t write(const uint8_t *buffer, size_t size);
 
- 
+
  typedef struct {
     const char* header;
     char* value;

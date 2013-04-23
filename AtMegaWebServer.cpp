@@ -1,19 +1,19 @@
 /*
 
-AtMegaWebServer Library, Copyright (c) 2013 Tilo Szepan, Immo Wache <https://github.com/tilos/AWebServer.git>
+AtMegaWebServer Library, Copyright (c) 2013 Tilo Szepan, Immo Wache <https://github.com/tilos/AtMegaWebServer.git>
 
 Based on the TinyWebServer Library, Copyright (C) 2010 Ovidiu Predescu <ovidiu@gmail.com>
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated 
-documentation files (the "Software"), to deal in the Software without restriction, including without limitation 
-the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, 
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+documentation files (the "Software"), to deal in the Software without restriction, including without limitation
+the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,
 and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED 
-TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL 
-THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF 
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
+TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
 CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
@@ -166,7 +166,7 @@ boolean AtMegaWebServer::processRequest() {
   // success indicates that there 2 x CRLF at end, so every thing is fine
   // if not you can sendHttpResult(404); or try to find a handler, maybe the 1st line
   // has been correct. If this fails sendHttpResult(404);
-  // is called anyhow 
+  // is called anyhow
   // Header processing finished. Identify the handler to call.
 
   boolean should_close = true;
@@ -432,6 +432,7 @@ namespace WebServerHandler {
 			web_server.sendHttpResult(404);
 		}else{
 			web_server.sendHttpResult(200);
+			web_server << path;
 		}
 
 	}else{
@@ -507,7 +508,6 @@ boolean move_handler(AtMegaWebServer& web_server){
 		web_server << path;
 	}else{
 		web_server.sendHttpResult(404);
-//		web_server << "not exists or failed deleting: " << path;
 #if DEBUG
 		Serial << F("not exists or failed deleting: ") << path << '\n';
 #endif
@@ -550,7 +550,7 @@ boolean move_handler(AtMegaWebServer& web_server){
 
   // If you want to send a file with a non-supported MimeType you can:
   // web_server.sendHttpResult(200, 0, "Content-Type: image/tiff" CRLF);
-  
+
         web_server.sendHttpResult(200, mime_type);
 #if DEBUG
 		Serial << F("Read file ");

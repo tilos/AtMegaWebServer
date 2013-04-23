@@ -1,16 +1,16 @@
 /*
-Copyright (c) 2013 Tilo Szepan, Immo Wache
+Copyright (c) 2013 Tilo Szepan, Immo Wache <https://github.com/tilos/AtMegaWebServer.git>
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated 
-documentation files (the "Software"), to deal in the Software without restriction, including without limitation 
-the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, 
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+documentation files (the "Software"), to deal in the Software without restriction, including without limitation
+the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,
 and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED 
-TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL 
-THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF 
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
+TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
 CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
@@ -22,14 +22,14 @@ CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFT
 namespace UdpServices{
 
 const unsigned int localPort = 8221;      // local port to listen on
-// Interval for time requests in secs; 
+// Interval for time requests in secs;
 // tests over a few days have shown that the accuracy of millis() on my device is ca. + 6 sec / h
 // so every 2 hours seems to be ok
 EthernetUDP Udp;
 
 
 IPAddress timeServer(65, 55, 21, 23); // time.windows.com NTP server
-const unsigned long TIME_REQU_INTV = 3600 * 2; 
+const unsigned long TIME_REQU_INTV = 3600 * 2;
 const int TimeOffset = 3600 * 2; // sec/h * h Diff to GMT
 
 const int NTP_PACKET_SIZE = 48; // NTP time stamp is in the first 48 bytes of the message
@@ -93,7 +93,7 @@ void sendDiscoveryPacket(IPAddress& udpRemoteIp, unsigned int udpRemotePort)
     prefix.getBytes(&packetBuffer[bytesWrite], stringLen + 1);
     bytesWrite += stringLen;
   }
-  
+
   if(description){
     stringLen = description.length();
     memcpy(&packetBuffer[bytesWrite], &stringLen, sizeof(stringLen));
