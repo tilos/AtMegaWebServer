@@ -53,7 +53,7 @@ static uint8_t mac[] = {
 
 void setup() {
   // initialize file system ( SdFat )
-   WebServerHandler::init();
+   WebServerHandler::begin();
 
    // Initialize the Ethernet.
   Ethernet.begin(mac);

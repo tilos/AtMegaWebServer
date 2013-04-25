@@ -384,8 +384,8 @@ size_t AtMegaWebServer::write(const uint8_t *buffer, size_t size) {
 namespace WebServerHandler {
   SdFat sdfat;
 
-  boolean init(uint8_t rate, uint8_t pin){
-	return sdfat.init(rate, pin);// .begin(4, SPI_FULL_SPEED);
+  boolean begin(uint8_t pin, uint8_t rate){
+	return sdfat.begin(pin, rate); // .init(rate, pin);
   }
 
 

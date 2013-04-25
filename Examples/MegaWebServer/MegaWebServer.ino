@@ -64,8 +64,6 @@ AtMegaWebServer web = AtMegaWebServer(handlers, headers);
 static uint8_t mac[] = {
   0x90, 0xA2, 0xDA, 0x0D, 0x97, 0x1A };
 
-const int LEDPIN = 7;
-
 
 void setup() {
 #if DEBUG
@@ -73,7 +71,7 @@ void setup() {
   freeMem("freeMem begin");
 #endif     
 
-   if(!WebServerHandler::init()){
+   if(!WebServerHandler::begin()){
 #if DEBUG
     // this unfortunately happens sometimes, and then no handler will work (no file system)
     // the only thing that helps is restart Arduino by switching power off and on again
@@ -81,11 +79,8 @@ void setup() {
 #endif     
    }
 
-//  pinMode(LEDPIN, OUTPUT);
-
 
    // Initialize the Ethernet.
-//  Serial << F("Setting up the Ethernet card...\n");
   Ethernet.begin(mac);
 #if DEBUG
   Serial << F("Arduino Mega is at ");
@@ -93,7 +88,6 @@ void setup() {
 #endif     
 
   // Start the web server.
-//  Serial << F("Web server starting...\n");
   web.begin();
 #if DEBUG
   Serial << F("Ready to accept HTTP requests.\n\n");

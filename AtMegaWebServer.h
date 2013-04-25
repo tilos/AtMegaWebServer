@@ -26,7 +26,7 @@ CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFT
 
 const int BUFFER_SIZE = 255;
 // max secs to wait for read available
-const int TIME_OUT = 30;
+const int TIME_OUT = 10;
 
 
 class AtMegaWebServer;
@@ -35,7 +35,7 @@ class AtMegaWebServer;
 namespace WebServerHandler {
   const int SDC_PIN = 4;
 
-  boolean init(uint8_t rate = SPI_FULL_SPEED, uint8_t pin = SDC_PIN);
+  boolean begin(uint8_t pin = SDC_PIN, uint8_t rate = SPI_FULL_SPEED);
   boolean put_handler(AtMegaWebServer& web_server);
   boolean move_handler(AtMegaWebServer& web_server);
   boolean delete_handler(AtMegaWebServer& web_server);
