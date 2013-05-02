@@ -1,7 +1,9 @@
 AtMegaWebServer
 ===============
 
-AtMegaWebServer is a Http-Server library for Arduino with full file managing support on SD card, file system time support (NTP), UDP broadcast discovery and optionaly Json support.
+AtMegaWebServer is a Http-Server library for Arduino Uno / Mega with full file managing support on SD card, file system time support
+(NTP), UDP broadcast discovery and optionaly Json support.  For Arduino Due take [DueWebServer](https://github.com/tilos/DueWebServer), 
+for further developing might be [AWebServer](https://github.com/tilos/AWebServer) the best choice.
 
 
 The code is based on the TinyWebServer Library, Copyright (C) 2010 Ovidiu Predescu https://github.com/ovidiucp/TinyWebServer. 
@@ -10,7 +12,11 @@ The code is based on the TinyWebServer Library, Copyright (C) 2010 Ovidiu Predes
 It supports all file managing http-commands (GET, PUT, DELETE) and additional rename (non http (WebDAV): MOVE).
 Uploaded files and folders will get the actual local time. The clock starts automatical and will be set every 2 hours (can be freely selected
 by setting the TIME_REQU_INTV in UdpServices.cpp, even the difference to GMT with TimeOffset).
-How it works and looks like you can see here (using DuinoExplorer from http://duinoexplorer.codeplex.com/ as client).
+How it works and looks like you can see here:
+
+![screenshot](https://github.com/tilos/AWebServer/raw/master/AWS_in_Mozilla.PNG) 
+
+or here (using DuinoExplorer from http://duinoexplorer.codeplex.com/ as client).
 
 ![screenshot](https://github.com/tilos/AWebServer/raw/master/explore_AWS.PNG) 
 
@@ -43,7 +49,8 @@ _____________________
 External dependencies:
 =====================
 
-AWebServer depends on the external library SdFat ( (C) 2012 by William Greiman ) (http://code.google.com/p/sdfatlib/)
+AWebServer depends on the external library SdFat ( (C) 2012 by William Greiman ) (http://code.google.com/p/sdfatlib/),
+Flash version 4.0 (http://arduiniana.org/libraries/flash/) 
 and, if Json is needed, on aJson lib ( (c) 2001, Marcus Nowotny ) (https://github.com/interactive-matter/aJson).
 
 All features can be tested with DuinoExplorer from Windows (available on codeplex http://duinoexplorer.codeplex.com/) 
